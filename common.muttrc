@@ -1,0 +1,83 @@
+set editor="vim -c 'set tw=72'"
+
+set query_command="abook --mutt-query '%s'"
+macro index a     "|abook --add-email\n" 'add sender to abook'
+macro pager a     "|abook --add-email\n" 'add sender to abook'
+bind editor <Tab> complete-query
+
+set use_from=yes
+set use_envelope_from=yes
+
+set forward_format="Fwd: [%s]"
+
+set spoolfile="=INBOX"
+
+# Save outgoing emails to inbox
+set record="=INBOX"
+
+set move="no"
+
+set sort="threads"
+set beep_new="yes"
+set check_new="yes"
+set metoo="no"
+set mail_check="60"
+set timeout="120"
+set hidden_host="yes"
+set pager_index_lines="10"
+
+# theme
+color normal white default
+color quoted green default
+color quoted1 cyan default
+color quoted2 green default
+color quoted3 cyan default
+color indicator white red
+color signature cyan default
+color hdrdefault yellow default
+color status white blue
+color message white default
+color error red default
+color body cyan default "(ftp|http)://[^ ]+"
+color body cyan default [-a-z_0-9.]+@[-a-z_0-9.]+
+
+color tree magenta default
+color tilde magenta default
+color markers brightcyan default
+color attachment brightmagenta default
+color search black green
+color underline brightgreen default
+
+color index magenta default '(~n 1-1)'
+color index green default '(~n 2-2)'
+color index brightblue default '(~n 3-3)'
+color index white default '(~n 4-9)'
+color index brightred default '(~n 10-99)'
+
+# headers
+ignore *
+unignore From:
+unignore To:
+unignore Reply-To:
+unignore Mail-Followup-To:
+unignore Subject:
+unignore Date:
+unignore Organization:
+unignore Newsgroups:
+unignore CC:
+unignore BCC:
+unignore Message-ID:
+unignore X-Mailer:
+unignore User-Agent:
+unignore X-GPG-Fingerprint:
+unignore X-GPG-Info:
+unignore X-Spam-Status:
+unignore X-Spam-Level:
+unignore X-Scanned-By:
+unignore X-Spam-Flag:
+unignore X-Spam-Score:
+unignore X-Virus-Status:
+unignore List-Id:
+hdr_order From: Subject: To: CC: BCC: Reply-To: Mail-Followup-To: Date: Organization: User-Agent: X-Mailer: X-GPG-Fingerprint: X-GPG-Info: X-Spam-Status: X-Virus-Status:
+
+auto_view text/html
